@@ -20,20 +20,7 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-    }
 
-    post {
-        success {
-            echo 'Project Work pipeline completed successfully!'
-        }
-
-        failure {
-            echo 'Project Work pipeline failed.'
-          }
-    
-       }
-     
-   }
         stage('Docker Build') {
             steps {
                 sh 'docker build -t project-work:1.0 .'
